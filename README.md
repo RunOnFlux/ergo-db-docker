@@ -1,4 +1,4 @@
-# flux-ergo-db-docker
+# ergo-db-docker
 This repo's purpose is to build the latest image for the Ergo-DB component. It is designed to be compatible with FluxOS.
 
 The Dockerfile builds Postgres 14 with Ergo Platform's [Explorer-Backend DB Schema](https://github.com/ergoplatform/explorer-backend/blob/master/modules/explorer-core/src/main/resources/db/V9__Schema.sql).
@@ -15,18 +15,18 @@ ARG EXPLORER_VERSION=9.16.6
 # please use the latest raw github URL
 ARG SCHEMA=https://raw.githubusercontent.com/ergoplatform/explorer-backend/$EXPLORER_VERSION/modules/explorer-core/src/main/resources/db/V9__Schema.sql
 
-# Build the image and tag it as "flux-ergo-db"
-docker build . -t flux-ergo-db
+# Build the image and tag it as "ergo-db"
+docker build . -t ergo-db
 
 # Log in to Docker-Hub with your username and password
 docker login -u your-username
 
 # Tag the image with the Docker-Hub repo tag
-docker tag flux-ergo-db runonflux/flux-ergo-db:latest
+docker tag ergo-db runonflux/ergo-db:latest
 
 # Push the image to Docker-Hub (each layer may take a few mins to push)
-docker push runonflux/flux-ergo-db:latest
+docker push runonflux/ergo-db:latest
 
 # Use the image in FluxOS or in your Docker-Compose file
-runonflux/flux-ergo-db:latest
+runonflux/ergo-db:latest
 ```
